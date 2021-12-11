@@ -6,15 +6,22 @@
 #    By: cmanzano <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/11 13:32:23 by cmanzano          #+#    #+#              #
-#    Updated: 2021/12/08 16:41:29 by cmanzano         ###   ########.fr        #
+#    Updated: 2021/12/10 10:07:42 by chris            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+# MODIFY ECHO IF IN LINUX
+ifeq ($(shell uname), Linux)
+ECHO = echo -e
+else
+ECHO = echo
+endif
+
 #COLORS
-GREEN = @echo "\033[0;32m" #;4 underline
-BLUE = @echo "\033[0;34m" 
-PURPLE = @echo "\033[0;35m"
-CYAN = @echo "\033[0;36m"
+GREEN = @$(ECHO) "\033[0;32m" #;4 underline
+BLUE = @$(ECHO) "\033[0;34m"
+PURPLE = @$(ECHO) "\033[1;35m"
+CYAN = @$(ECHO) "\033[1;36m"
 RESET = "\033[1;0m"
 
 #OUTPUT 
@@ -40,6 +47,7 @@ CC = gcc
 CFLAGS = -Wall -Werror -Wextra
 
 
+
 all: create_dirs $(NAME)
 	$(GREEN) Done!
 
@@ -59,7 +67,7 @@ $(OBJ_DIR)/%.o:	$(SRC_DIR)/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	$(PURPLE) Cleaned
+	$(PURPLE) Cleaned $(RESET)
 	@rm -rf $(OBJ_DIR)
 	@make clean -sC $(LIBFT_DIR)
 
@@ -69,4 +77,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re bonus $(LIBFT_DIR)/%.o

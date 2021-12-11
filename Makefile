@@ -6,7 +6,7 @@
 #    By: cmanzano <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/11 13:32:23 by cmanzano          #+#    #+#              #
-#    Updated: 2021/12/10 10:07:42 by chris            ###   ########.fr        #
+#    Updated: 2021/12/11 18:35:27 by cmanzano         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,8 @@ LIBFT = libft.a
 
 #SOURCE AND OBJECTS
 SRC_DIR = src
-SRC = ft_printf.c
+SRC = ft_printf.c put_nbr.c put_str.c	\
+	  put_hex.c put_ptr.c
 OBJ_DIR = obj
 OBJ = $(SRC:.c=.o)
 OBJS = $(addprefix $(OBJ_DIR)/, $(OBJ))
@@ -53,7 +54,7 @@ all: create_dirs $(NAME)
 
 $(NAME): $(LIBFT_DIR)/$(LIBFT) $(OBJS)	
 	$(BLUE) Ensambling Library $(RESET)
-	$(AR) $(AR_FLAGS) $(NAME) $(OBJ_DIR)/$(OBJ)
+	$(AR) $(AR_FLAGS) $(NAME) $(OBJS)
 
 create_dirs:
 	@mkdir -p $(OBJ_DIR)
@@ -67,7 +68,7 @@ $(OBJ_DIR)/%.o:	$(SRC_DIR)/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	$(PURPLE) Cleaned $(RESET)
+	$(PURPLE Cleaned $(RESET)
 	@rm -rf $(OBJ_DIR)
 	@make clean -sC $(LIBFT_DIR)
 

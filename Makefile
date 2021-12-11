@@ -6,7 +6,7 @@
 #    By: cmanzano <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/11 13:32:23 by cmanzano          #+#    #+#              #
-#    Updated: 2021/12/11 18:35:27 by cmanzano         ###   ########.fr        #
+#    Updated: 2021/12/11 18:49:28 by cmanzano         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ LIBFT = libft.a
 #SOURCE AND OBJECTS
 SRC_DIR = src
 SRC = ft_printf.c put_nbr.c put_str.c	\
-	  put_hex.c put_ptr.c
+	  put_ptr.c
 OBJ_DIR = obj
 OBJ = $(SRC:.c=.o)
 OBJS = $(addprefix $(OBJ_DIR)/, $(OBJ))

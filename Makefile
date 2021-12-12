@@ -6,7 +6,7 @@
 #    By: cmanzano <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/11 13:32:23 by cmanzano          #+#    #+#              #
-#    Updated: 2021/12/11 18:49:28 by cmanzano         ###   ########.fr        #
+#    Updated: 2021/12/11 20:45:03 by chris            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,21 +47,15 @@ AR_FLAGS = crs
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra
 
-
-
 all: create_dirs $(NAME)
 	$(GREEN) Done!
 
-$(NAME): $(LIBFT_DIR)/$(LIBFT) $(OBJS)	
+$(NAME):  $(OBJS)	
 	$(BLUE) Ensambling Library $(RESET)
 	$(AR) $(AR_FLAGS) $(NAME) $(OBJS)
 
 create_dirs:
 	@mkdir -p $(OBJ_DIR)
-
-$(LIBFT_DIR)/$(LIBFT):
-	@make all -sC $(LIBFT_DIR)
-	@cp $(LIBFT_DIR)/$(LIBFT) $(NAME)
 
 $(OBJ_DIR)/%.o:	$(SRC_DIR)/%.c 
 	$(CYAN) Compiling $< $(RESET)
@@ -71,6 +65,9 @@ clean:
 	$(PURPLE Cleaned $(RESET)
 	@rm -rf $(OBJ_DIR)
 	@make clean -sC $(LIBFT_DIR)
+
+bonus:
+	$(GREEN) Done! $(RESET)
 
 fclean: clean
 	@rm $(NAME)

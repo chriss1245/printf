@@ -6,14 +6,14 @@
 /*   By: cmanzano <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 11:50:14 by cmanzano          #+#    #+#             */
-/*   Updated: 2021/12/11 18:30:00 by cmanzano         ###   ########.fr       */
+/*   Updated: 2021/12/11 21:01:51 by chris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
-# include "../libft/libft.h"
 # include <stdarg.h>
+# include <unistd.h>
 
 int	ft_printf(const char *s, ...) __attribute__((format(printf, 1, 2)));
 int	put_number(int n);

@@ -9,3 +9,5 @@ A simplified version of printf from libc
 |characters | %c|
 |strings| %s|
 |pointer directions| %p|
+
+This version of printf does not support flags. Neither does handles memory buffering

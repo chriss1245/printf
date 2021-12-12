@@ -6,7 +6,7 @@
 #    By: cmanzano <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/11 13:32:23 by cmanzano          #+#    #+#              #
-#    Updated: 2021/12/11 20:45:03 by chris            ###   ########.fr        #
+#    Updated: 2021/12/12 12:53:29 by cmanzano         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,10 +26,6 @@ RESET = "\033[1;0m"
 
 #OUTPUT 
 NAME =	libftprintf.a
-
-#REQUIRED MODULES#
-LIBFT_DIR = libft
-LIBFT = libft.a
 
 #SOURCE AND OBJECTS
 SRC_DIR = src
@@ -64,14 +60,12 @@ $(OBJ_DIR)/%.o:	$(SRC_DIR)/%.c
 clean:
 	$(PURPLE Cleaned $(RESET)
 	@rm -rf $(OBJ_DIR)
-	@make clean -sC $(LIBFT_DIR)
 
 bonus:
 	$(GREEN) Done! $(RESET)
 
 fclean: clean
 	@rm $(NAME)
-	@make fclean -sC $(LIBFT_DIR)
 
 re: fclean all
 

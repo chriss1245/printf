@@ -6,7 +6,7 @@
 /*   By: cmanzano <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 11:54:19 by cmanzano          #+#    #+#             */
-/*   Updated: 2021/12/11 18:30:11 by cmanzano         ###   ########.fr       */
+/*   Updated: 2021/12/12 13:37:28 by cmanzano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ int	ft_printf(const char *s, ...)
 	unsigned int	i;
 	int				printed;
 
+	if (s == 0)
+		return (0);
 	i = 0;
 	printed = 0;
 	va_start(args, s);
@@ -55,5 +57,5 @@ int	ft_printf(const char *s, ...)
 		i++;
 	}
 	va_end(args);
-	return (0);
+	return (printed);
 }

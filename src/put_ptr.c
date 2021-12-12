@@ -6,26 +6,25 @@
 /*   By: cmanzano <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 18:30:39 by cmanzano          #+#    #+#             */
-/*   Updated: 2021/12/11 22:55:29 by chris            ###   ########.fr       */
+/*   Updated: 2021/12/12 13:01:20 by cmanzano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
 
-int	put_hex()
+static int put_hex_long(unsigned long long int n);
 
 int	put_ptr(void *p)
 {
 	unsigned long long int	ptr;
+	int						len;
 
 	ptr = (unsigned long long int) p;
-	
-	return (0);
+	len = write(1, "0x", 2);	
+	return (len + put_hex_long(ptr));
 }
 
-
-
-int put_hex(unsigned int n, char a)
+static int put_hex_long(unsigned long long int n)
 {
 	char	c;
 	int		i;
@@ -33,15 +32,15 @@ int put_hex(unsigned int n, char a)
 	if (n < 16)
 	{
 		if (n > 9)
-			c = (n - 10) + a;
+			c = (n - 10) + 'a';
 		else
 			c = n + '0';
 
 		return (write(1, &c, 1));
 	}
-	i = put_hex(n / 16, a);
+	i = put_hex_long(n / 16);
 	if (n % 16 > 9)
-		c = (n % 16 - 10) + a;
+		c = (n % 16 - 10) + 'a';
 	else
 		c = (n % 16) + '0';
 	return (i + write(1, &c, 1));

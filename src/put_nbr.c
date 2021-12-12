@@ -6,13 +6,13 @@
 /*   By: cmanzano <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 14:53:48 by cmanzano          #+#    #+#             */
-/*   Updated: 2021/12/11 18:49:07 by cmanzano         ###   ########.fr       */
+/*   Updated: 2021/12/12 13:52:12 by cmanzano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
 
-int put_unsigned_number(unsigned int n)
+int	put_unsigned_number(unsigned int n)
 {
 	char	c;
 	int		i;
@@ -37,7 +37,7 @@ int	put_number(int n)
 	return (put_unsigned_number(n_));
 }
 
-int put_hex(unsigned int n, char a)
+int	put_hex(unsigned int n, char a)
 {
 	char	c;
 	int		i;
@@ -48,7 +48,6 @@ int put_hex(unsigned int n, char a)
 			c = (n - 10) + a;
 		else
 			c = n + '0';
-
 		return (write(1, &c, 1));
 	}
 	i = put_hex(n / 16, a);

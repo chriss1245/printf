@@ -6,17 +6,16 @@
 /*   By: cmanzano <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 11:54:19 by cmanzano          #+#    #+#             */
-/*   Updated: 2021/12/12 13:37:28 by cmanzano         ###   ########.fr       */
+/*   Updated: 2021/12/12 14:03:10 by cmanzano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
-#include <stdio.h>
 
-int	insert_arg(char c, va_list args)
+static int	insert_arg(char c, va_list args)
 {
 	if (c == 'c')
-		return put_char(va_arg(args, int));//return (put_char(*(va_arg(args, char *))));
+		return (put_char(va_arg(args, int)));
 	else if (c == 's')
 		return (put_string(va_arg(args, char *)));
 	else if (c == 'i' || c == 'd')
@@ -31,6 +30,8 @@ int	insert_arg(char c, va_list args)
 		return (write(1, "%", 1));
 	else if (c == 'p')
 		return (put_ptr(va_arg(args, void *)));
+	else if (c != 0)
+		return (write(1, &c, 1));
 	return (0);
 }
 
@@ -45,7 +46,7 @@ int	ft_printf(const char *s, ...)
 	i = 0;
 	printed = 0;
 	va_start(args, s);
-	while(s[i])
+	while (s[i])
 	{
 		if (s[i] == '%')
 		{

@@ -6,16 +6,17 @@
 /*   By: cmanzano <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 15:39:36 by cmanzano          #+#    #+#             */
-/*   Updated: 2021/12/12 13:45:36 by cmanzano         ###   ########.fr       */
+/*   Updated: 2021/12/12 13:49:44 by cmanzano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
 
-int put_char(int c)
+int	put_char(int c)
 {	
 	return (write(1, &c, 1));
 }
+
 int	put_string(char *str)
 {
 	int	i;

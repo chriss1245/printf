@@ -6,7 +6,7 @@
 #    By: cmanzano <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/11 13:32:23 by cmanzano          #+#    #+#              #
-#    Updated: 2021/12/12 12:53:29 by cmanzano         ###   ########.fr        #
+#    Updated: 2021/12/12 14:17:13 by cmanzano         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,12 +61,9 @@ clean:
 	$(PURPLE Cleaned $(RESET)
 	@rm -rf $(OBJ_DIR)
 
-bonus:
-	$(GREEN) Done! $(RESET)
-
 fclean: clean
-	@rm $(NAME)
+	@rm -rf $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus $(LIBFT_DIR)/%.o
+.PHONY: all clean fclean re $(LIBFT_DIR)/%.o

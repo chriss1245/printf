@@ -3,7 +3,7 @@ A simplified version of printf from libc
 
 | Supported Data types| Syntax |
 |---------------------|---|
-|integers| %i, %d|
+|integers| %i %d|
 |unsigned integers | %u |
 |unsigned integers in hexadecimal in lowercase and uppercase| %x %X |
 |characters | %c|

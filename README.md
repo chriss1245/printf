@@ -28,7 +28,7 @@ make -C printf
 ## Usage
 *Inside your files*
 ```c 
-#include "printf/inc/ft_libft.h"
+#include "printf/inc/ft_printf.h"
 ````
 ```c 
 ft_printf("Hello world %d", 1);
